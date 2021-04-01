@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Teams>
+
+<a asp-action="Index" asp-controller="Home" asp-route-teamnombre="">Home</a>
+<br />
+
+@foreach (var x in Model) //lists all the teams in the menu from the model that is passed
+{<!--Team selected is highlighted-->
+    <a class="btn btn-block
+       @(x.TeamName == ViewBag.SelectedTeam ? "btn-primary" : "btn-outline-secondary")"
+       asp-action="Index" asp-controller="Home"
+       asp-route-teamnombre="@x.TeamId"
+       asp-route-TeamName="@x.TeamName">@x.TeamName</a>
+    //<br />
+    //teamnombre is the TeamId
+}
